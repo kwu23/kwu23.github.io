@@ -38,7 +38,11 @@
     </table>
     <script>
         $(document).ready(function() {
-            $('#crafting_prices').DataTable();
+            $('#crafting_prices').DataTable( {
+                "order": [[ 7, "desc" ]],
+                stateSave: true,
+                "pageLength": 20
+            } );
         } );
     </script>
 </html>
