@@ -1,13 +1,15 @@
 import api.XIVAPI;
-import com.google.common.collect.Lists;
-import database.ItemDatabase;
+import com.github.mustachejava.DefaultMustacheFactory;
+import com.github.mustachejava.Mustache;
+import com.github.mustachejava.MustacheFactory;
 import database.RecipeDatabase;
 import models.*;
+import rendering.Model;
 
+import java.io.*;
 import java.text.NumberFormat;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Driver {
 
@@ -17,13 +19,27 @@ public class Driver {
 
     public static void main(String[] args) {
         try {
+            File htmlOutput = new File(".");
+
+            HashMap<String, Object> scopes = new HashMap<String, Object>();
+            scopes.put("name", "Mustache");
+            scopes.put("model", new Model("Perfect!"));
+
+            Writer writer = new OutputStreamWriter(System.out);
+            MustacheFactory mf = new DefaultMustacheFactory();
+            Mustache mustache = mf.compile("index.mustache");
+            mustache.execute(writer, scopes);
+            writer.flush();
+            BufferedWriter fileWriter = new BufferedWriter(new FileWriter("./index.html"));
+            fileWriter.write("hello");
+            writer.close();
             //getCraftingPrice("oasis half partition");
             //getCraftingPrices(Arrays.asList("molybdenum pliers", "molybdenum war axe", "molybdenum tassets of fending", "molybdenum plate belt of maiming"));
-            getCraftingPrices(Stream.concat(ItemDatabase.getAllContaining("rakshasa").stream(), ItemDatabase.getAllContaining("craftsing").stream()).collect(Collectors.toList()));
+            //getCraftingPrices(Stream.concat(ItemDatabase.getAllContaining("obi").stream(), ItemDatabase.getAllContaining("craftsing").stream()).collect(Collectors.toList()));
 
             Map<String, Long> sortedProfits = profits.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
-            System.out.println("PROFITS");
+            //System.out.println("PROFITS");
             for (String key : sortedProfits.keySet()) {
                 System.out.println(key);
             }
