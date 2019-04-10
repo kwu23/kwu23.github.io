@@ -81,12 +81,15 @@ public class SimpleItemObject {
         long numSold = 0;
         for (ItemHistory itemHistory : history) {
             if ((System.currentTimeMillis() - itemHistory.getPurchaseDateMS()) < 604800000) {
-                numSold += itemHistory.getQuanitity();
+                numSold += itemHistory.getQuantity();
             }
         }
 
         if (numSold >= 100) {
-            return numSold / (System.currentTimeMillis() - history.get(history.size() - 1).getPurchaseDateMS() / 604800000);
+            double currentTime = System.currentTimeMillis();
+            double oldestPurchaseRecorded = history.get(history.size() - 1).getPurchaseDateMS();
+            double fractionOfWeek = ((currentTime - oldestPurchaseRecorded) / 604800000.0);
+            numSold = (long) ((double) numSold / fractionOfWeek);
         }
 
         return numSold;

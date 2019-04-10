@@ -15,5 +15,5 @@ public class ItemHistory {
     private long PriceTotal;
     private long PurchaseDate;
     private long PurchaseDateMS;
-    private long Quanitity;
+    private long Quantity;
 }
