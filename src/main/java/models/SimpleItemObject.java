@@ -81,9 +81,14 @@ public class SimpleItemObject {
         long numSold = 0;
         for (ItemHistory itemHistory : history) {
             if ((System.currentTimeMillis() - itemHistory.getPurchaseDateMS()) < 604800000) {
-                numSold++;
+                numSold += itemHistory.getQuanitity();
             }
         }
+
+        if (numSold >= 100) {
+            return numSold / (System.currentTimeMillis() - history.get(history.size() - 1).getPurchaseDateMS() / 604800000);
+        }
+
         return numSold;
     }
 
