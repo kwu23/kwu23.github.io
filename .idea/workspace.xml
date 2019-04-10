@@ -16,8 +16,8 @@
       <file leaf-file-name="Driver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="74" column="89" selection-start-line="74" selection-start-column="89" selection-end-line="74" selection-end-column="89" />
+            <state relative-caret-position="621">
+              <caret line="120" column="42" lean-forward="true" selection-start-line="120" selection-start-column="42" selection-end-line="120" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -28,7 +28,7 @@
       <file leaf-file-name="AbstractList.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/AbstractList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="17">
               <caret line="233" selection-start-line="233" selection-end-line="233" />
               <folding>
                 <element signature="e#7665#7666#0" expanded="true" />
@@ -37,23 +37,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MarketResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/MarketResponse.java">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../CraftingPrice/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+            <state relative-caret-position="254">
+              <caret line="971" column="32" selection-start-line="971" selection-start-column="21" selection-end-line="971" selection-end-column="32" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../CraftingPrice/index.html">
+      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/Item.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="102">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -61,7 +61,7 @@
       <file leaf-file-name="XIVAPI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/api/XIVAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
+            <state relative-caret-position="442">
               <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -73,7 +73,7 @@
       <file leaf-file-name="MarketData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/MarketData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="119">
               <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -85,7 +85,7 @@
       <file leaf-file-name="RecipeData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/RecipeData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
+            <state relative-caret-position="1258">
               <caret line="78" column="99" selection-start-line="78" selection-start-column="99" selection-end-line="78" selection-end-column="99" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -97,12 +97,16 @@
       <file leaf-file-name="SimpleItemObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/SimpleItemObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="92" column="9" lean-forward="true" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
+            <state relative-caret-position="264">
+              <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2720#2721#0" expanded="true" />
-                <element signature="e#2819#2820#0" expanded="true" />
+                <element signature="e#2983#2984#0" expanded="true" />
+                <element signature="e#3082#3083#0" expanded="true" />
+                <element signature="e#3129#3130#0" expanded="true" />
+                <element signature="e#3186#3187#0" expanded="true" />
+                <element signature="e#3248#3249#0" expanded="true" />
+                <element signature="e#3312#3313#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,8 +124,8 @@
       <file leaf-file-name="ItemDatabase.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/resources/ItemDatabase.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="28651" column="5" selection-start-line="28651" selection-end-line="28651" selection-end-column="5" />
+            <state relative-caret-position="486863">
+              <caret line="28639" column="149" selection-start-line="28639" selection-start-column="149" selection-end-line="28639" selection-end-column="149" />
             </state>
           </provider>
         </entry>
@@ -152,6 +156,7 @@
       <find>html</find>
       <find>amount</find>
       <find>shakshouka</find>
+      <find>steel ingot</find>
     </findStrings>
     <replaceStrings>
       <replace>ingredientId</replace>
@@ -163,8 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/utilities/Mapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/Driver.java" />
         <option value="$PROJECT_DIR$/src/main/java/database/ItemDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/ItemData.java" />
@@ -208,10 +211,12 @@
         <option value="$PROJECT_DIR$/src/main/java/Driver.java" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/index.mustache" />
-        <option value="$PROJECT_DIR$/../CraftingPrice/src/main/java/rendering/Model.java" />
-        <option value="$PROJECT_DIR$/../CraftingPrice/src/main/resources/index.mustache" />
-        <option value="$PROJECT_DIR$/../CraftingPrice/src/main/java/api/XIVAPI.java" />
-        <option value="$PROJECT_DIR$/../CraftingPrice/src/main/java/models/ItemHistory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rendering/Model.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/index.mustache" />
+        <option value="$PROJECT_DIR$/src/main/java/api/XIVAPI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/ItemHistory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/SimpleItemObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Driver.java" />
         <option value="$PROJECT_DIR$/../CraftingPrice/src/main/java/models/SimpleItemObject.java" />
         <option value="$PROJECT_DIR$/../CraftingPrice/src/main/java/Driver.java" />
       </list>
@@ -235,7 +240,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -305,6 +309,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -411,7 +416,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5003655" side_tool="true" weight="0.35439137" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996345" weight="0.35424638" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4996345" visible="true" weight="0.35424638" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
@@ -421,7 +426,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3978577" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3978577" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -698,13 +703,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/resources/RecipeDatabase.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121295">
@@ -733,9 +731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -758,7 +753,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/MarketResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="323">
           <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -766,26 +761,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/AbstractList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="233" selection-start-line="233" selection-end-line="233" />
-          <folding>
-            <element signature="e#7665#7666#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/resources/ItemDatabase.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="28651" column="5" selection-start-line="28651" selection-end-line="28651" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/api/XIVAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
+        <state relative-caret-position="442">
           <caret line="34" selection-start-line="34" selection-end-line="34" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -795,11 +773,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/MarketData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="119">
           <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/RecipeData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="78" column="99" selection-start-line="78" selection-start-column="99" selection-end-line="78" selection-end-column="99" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/resources/ItemDatabase.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486863">
+          <caret line="28639" column="149" selection-start-line="28639" selection-start-column="149" selection-end-line="28639" selection-end-column="149" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/AbstractList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="233" selection-start-line="233" selection-end-line="233" />
+          <folding>
+            <element signature="e#7665#7666#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -812,37 +824,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../CraftingPrice/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/RecipeData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="78" column="99" selection-start-line="78" selection-start-column="99" selection-end-line="78" selection-end-column="99" />
+        <state relative-caret-position="254">
+          <caret line="971" column="32" selection-start-line="971" selection-start-column="21" selection-end-line="971" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/SimpleItemObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="92" column="9" lean-forward="true" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
+        <state relative-caret-position="264">
+          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2720#2721#0" expanded="true" />
-            <element signature="e#2819#2820#0" expanded="true" />
+            <element signature="e#2983#2984#0" expanded="true" />
+            <element signature="e#3082#3083#0" expanded="true" />
+            <element signature="e#3129#3130#0" expanded="true" />
+            <element signature="e#3186#3187#0" expanded="true" />
+            <element signature="e#3248#3249#0" expanded="true" />
+            <element signature="e#3312#3313#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="74" column="89" selection-start-line="74" selection-start-column="89" selection-end-line="74" selection-end-column="89" />
+        <state relative-caret-position="621">
+          <caret line="120" column="42" lean-forward="true" selection-start-line="120" selection-start-column="42" selection-end-line="120" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

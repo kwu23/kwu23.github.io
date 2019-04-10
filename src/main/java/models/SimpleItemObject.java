@@ -98,4 +98,12 @@ public class SimpleItemObject {
     public boolean isValid() {
         return prices != null && !prices.isEmpty() && history != null && !history.isEmpty();
     }
+
+    public boolean hqAvailableToPurchase () {
+        return prices.stream().anyMatch(x -> x.isIsHQ());
+    }
+
+    public boolean hqInHistory () {
+        return history.stream().anyMatch(x -> x.isIsHQ());
+    }
 }

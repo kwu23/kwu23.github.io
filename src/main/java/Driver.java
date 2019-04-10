@@ -110,10 +110,10 @@ public class Driver {
             if (ingredientDataMissing) {
                 continue;
             }
-            long profit = recipeData.canHQ() ? cheapestHQ * recipeData.getAmount() - priceToCraft : cheapest * recipeData.getAmount() - priceToCraft;
-            long averageHistory = items.get(itemId).getAverageHistory();
+            long profit = items.get(itemId).hqAvailableToPurchase() ? cheapestHQ * recipeData.getAmount() - priceToCraft : cheapest * recipeData.getAmount() - priceToCraft;
+            long averageHistory = items.get(itemId).hqInHistory() ? items.get(itemId).getAverageHQHistory() : items.get(itemId).getAverageHistory();
             long numSoldInPastWeek = items.get(itemId).getAmountSoldLastWeek();
-            long historicalProfit = (recipeData.canHQ() ? items.get(itemId).getAverageHQHistory() : items.get(itemId).getAverageHistory()) * recipeData.getAmount() - priceToCraft;
+            long historicalProfit = averageHistory * recipeData.getAmount() - priceToCraft;
             long profitScore = historicalProfit * numSoldInPastWeek;
             models.add(new Model(
                     name,
