@@ -18,6 +18,7 @@
             <th> Average history </th>
             <th> Sold in past week </th>
             <th> Historical profit </th>
+            <th> Profit score </th>
         </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
                 <td> {{averageHistory}} </td>
                 <td> {{numSoldInPastWeek}} </td>
                 <td> {{historicalProfit}} </td>
+                <td> {{profitScore}} </td>
             </tr>
         {{/models}}
 
@@ -40,7 +42,7 @@
     <script>
         $(document).ready(function() {
             $('#crafting_prices').DataTable( {
-                "order": [[ 7, "desc" ]],
+                "order": [[ 8, "desc" ]],
                 stateSave: true,
                 "pageLength": 20
             } );

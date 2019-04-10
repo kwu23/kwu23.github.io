@@ -114,15 +114,17 @@ public class Driver {
             long averageHistory = items.get(itemId).getAverageHistory();
             long numSoldInPastWeek = items.get(itemId).getAmountSoldLastWeek();
             long historicalProfit = (recipeData.canHQ() ? items.get(itemId).getAverageHQHistory() : items.get(itemId).getAverageHistory()) * recipeData.getAmount() - priceToCraft;
+            long profitScore = historicalProfit * numSoldInPastWeek;
             models.add(new Model(
-               name,
-               nf.format(cheapest),
-               nf.format(cheapestHQ),
-               nf.format(priceToCraft),
-               nf.format(profit),
-               nf.format(averageHistory),
-               nf.format(numSoldInPastWeek),
-               nf.format(historicalProfit)
+                    name,
+                    nf.format(cheapest),
+                    nf.format(cheapestHQ),
+                    nf.format(priceToCraft),
+                    nf.format(profit),
+                    nf.format(averageHistory),
+                    nf.format(numSoldInPastWeek),
+                    nf.format(historicalProfit),
+                    nf.format(profitScore)
             ));
         }
 
@@ -184,29 +186,14 @@ public class Driver {
                 long historyProfit = (marketData.getAverageHQHistory() * recipeData.getAmount()) - totalCost;
                 String textToPrint = "It costs " + nf.format(nqCost) + " to buy the cheapest " + itemData.getSingularName() + " and " + nf.format(hqCost) + " for HQ. It costs " + nf.format(totalCost) + " to craft " + nf.format(recipeData.getAmount()) + " for a profit of " + profit + ". On average, this item has been sold for " + nf.format(marketData.getAverageHQHistory()) + " and was sold " + (marketData.getAmountSoldLastWeek() >= 100 ? "at least " : "") + marketData.getAmountSoldLastWeek() + " time(s) in the last week which would be a profit of " + historyProfit;
                 profits.put(textToPrint, historyProfit);
-                models.add(new Model(
-                        itemData.getName(),
-                        nf.format(nqCost),
-                        nf.format(hqCost),
-                        nf.format(totalCost),
-                        nf.format(profit),
-                        nf.format(marketData.getAverageHQHistory()),
-                        marketData.getAmountSoldLastWeek() > 100 ? nf.format(marketData.getAmountSoldLastWeek()) + "+" : nf.format(marketData.getAmountSoldLastWeek()),
-                        nf.format(historyProfit)));
+
                 //System.out.println(textToPrint);
             } else {
                 long profit = (nqCost * recipeData.getAmount()) - (totalCost);
                 long historyProfit = (marketData.getAverageHistory() * recipeData.getAmount()) - totalCost;
                 String textToPrint = "It costs " + nf.format(nqCost) + " to buy the cheapest " + itemData.getSingularName() + ". It costs " + nf.format(totalCost) + " to craft " + nf.format(recipeData.getAmount()) + " for a profit of " + profit + ". On average, this item has been sold for " + nf.format(marketData.getAverageHistory()) + " and was sold " + (marketData.getAmountSoldLastWeek() >= 100 ? "at least " : "") + marketData.getAmountSoldLastWeek() + " time(s) in the last week which would be a profit of " + historyProfit;
                 profits.put(textToPrint, historyProfit);
-                models.add(new Model(
-                        itemData.getName(),
-                        nf.format(nqCost),
-                        "",
-                        nf.format(totalCost),
-                        nf.format(profit),
-                        nf.format(marketData.getAverageHistory()), marketData.getAmountSoldLastWeek() > 100 ? nf.format(marketData.getAmountSoldLastWeek()) + "+" : nf.format(marketData.getAmountSoldLastWeek()),
-                        nf.format(historyProfit)));
+
                 //System.out.println(textToPrint);
             }
 

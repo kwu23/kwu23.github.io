@@ -18,4 +18,5 @@ public class Model {
     String averageHistory;
     String numSoldInPastWeek;
     String historicalProfit;
+    String profitScore;
 }
