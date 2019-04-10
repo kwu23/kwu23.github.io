@@ -37,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.mustache" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.mustache" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/resources/index.mustache">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+            <state relative-caret-position="612">
+              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
             </state>
           </provider>
         </entry>
@@ -97,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../CraftingPrice/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="58437" selection-start-line="58437" selection-end-line="58443" selection-end-column="12" />
+            <state relative-caret-position="332">
+              <caret line="58436" column="12" selection-start-line="58436" selection-start-column="12" selection-end-line="58436" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -128,6 +128,8 @@
       <find>history</find>
       <find>itemdata.getname</find>
       <find>items.get(itemId)</find>
+      <find>script</find>
+      <find>html</find>
     </findStrings>
     <replaceStrings>
       <replace>ingredientId</replace>
@@ -188,8 +190,8 @@
         <option value="$PROJECT_DIR$/../CraftingPrice/src/main/java/models/RecipeData.java" />
         <option value="$PROJECT_DIR$/../CraftingPrice/src/main/java/models/SimpleItemObject.java" />
         <option value="$PROJECT_DIR$/../CraftingPrice/src/main/java/Driver.java" />
-        <option value="$PROJECT_DIR$/../CraftingPrice/index.html" />
         <option value="$PROJECT_DIR$/../CraftingPrice/src/main/resources/index.mustache" />
+        <option value="$PROJECT_DIR$/../CraftingPrice/index.html" />
       </list>
     </option>
   </component>
@@ -806,17 +808,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../CraftingPrice/index.html">
+    <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/resources/index.mustache">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="58437" selection-start-line="58437" selection-end-line="58443" selection-end-column="12" />
+        <state relative-caret-position="612">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/resources/index.mustache">
+    <entry file="file://$PROJECT_DIR$/../CraftingPrice/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+        <state relative-caret-position="332">
+          <caret line="58436" column="12" selection-start-line="58436" selection-start-column="12" selection-end-line="58436" selection-end-column="12" />
         </state>
       </provider>
     </entry>
