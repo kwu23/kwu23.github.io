@@ -72,6 +72,18 @@ public class ItemDatabase {
         return null;
     }
 
+    public static List<ItemData> getAllContaining(String name) throws Exception{
+        initializeDatabase();
+        List<ItemData> itemDataList = new ArrayList<>();
+        name = Utilities.convertToShortName(name);
+        for (ItemData itemData : database) {
+            if (itemData.getName().contains(name)) {
+                itemDataList.add(itemData);
+            }
+        }
+        return itemDataList;
+    }
+
     public static void printDatabase() throws Exception{
         initializeDatabase();
         for (ItemData itemData : database) {

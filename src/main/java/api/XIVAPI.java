@@ -20,22 +20,32 @@ public class XIVAPI {
     private static final String SERVER_LIST_ENDPOINT = "servers=";
     private static final OkHttpClient client = new OkHttpClient();
 
+    private static final long CLIENT_COOLDOWN_IN_MS = 250;
+
+    private static long timeSinceLastCall = 0;
+
     public static MarketData getMarketResponse(long itemId, String server) throws Exception {
         String url = BASE_URL + MARKET_ENDPOINT + "/" + server + ITEM_ENDPOINT + "/" + itemId + API_KEY;
         Request request = new Request.Builder()
                 .url(url)
                 .build();
-        Response response = client.newCall(request).execute();
+        Response response = callAPI(request);
         return Mapper.getSingleItemMarketDataFromString(response.body().string());
     }
 
-    //https://www.xivapi.com/market/items?servers=faerie&ids=24250,24252,19943,24256,14,17&key=b1452611432f4b8eb9bfbf38
     public static List<MarketResponse> getMarketResponse(List<Long> itemIds, List<String> servers) throws Exception{
         String url = BASE_URL + MARKET_ENDPOINT + ITEM_ENDPOINT + "?" + SERVER_LIST_ENDPOINT + Joiner.on(",").join(servers) + ITEM_IDS + Joiner.on(",").join(itemIds) + API_KEY;
         Request request = new Request.Builder()
                 .url(url)
                 .build();
-        Response response = client.newCall(request).execute();
+        Response response = callAPI(request);
         return Mapper.getMultipleItemMarketDataFromString(response.body().string());
+    }
+
+    private static Response callAPI (Request request) throws Exception{
+        while((System.currentTimeMillis() - timeSinceLastCall) < CLIENT_COOLDOWN_IN_MS) { }
+        System.out.println(request.url());
+        timeSinceLastCall = System.currentTimeMillis();
+        return client.newCall(request).execute();
     }
 }

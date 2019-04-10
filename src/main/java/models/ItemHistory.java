@@ -14,6 +14,6 @@ public class ItemHistory {
     private long PricePerUnit;
     private long PriceTotal;
     private long PurchaseDate;
-    private String PurchaseDateMS;
+    private long PurchaseDateMS;
     private long Quanitity;
 }

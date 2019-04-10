@@ -3,12 +3,10 @@ package utilities;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jdk.internal.org.objectweb.asm.TypeReference;
 import models.MarketData;
 import models.MarketResponse;
 
 import java.util.List;
-import java.util.Map;
 
 public class Mapper {
     private static final ObjectMapper mapper = new ObjectMapper();
