@@ -10,6 +10,7 @@ import rendering.Model;
 
 import java.io.*;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -31,11 +32,14 @@ public class Driver {
             //getCraftingPrices(Stream.concat(ItemDatabase.getAllContaining("rakshasa").stream(), ItemDatabase.getAllContaining("asfgadccs").stream()).collect(Collectors.toList()));
             //getCraftingPrices(RecipeDatabase.getAllCraftableItems());
 
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm a z");
+            Date dt = new Date();
+            String lastUpdatedOn = sdf.format(dt);
+
             createFaerieItemDatabaseHtml();
 
-
-
             HashMap<String, Object> scopes = new HashMap<String, Object>();
+            scopes.put("lastUpdatedOn", lastUpdatedOn);
             scopes.put("models", models);
 
             PrintWriter writer = new PrintWriter("index.html");
