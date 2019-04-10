@@ -2,6 +2,7 @@ import api.XIVAPI;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
+import com.google.common.collect.Lists;
 import database.ItemDatabase;
 import database.RecipeDatabase;
 import models.*;
@@ -19,18 +20,20 @@ public class Driver {
 
     private static final Map<String, Long> profits = new HashMap<>();
     private static final List<Model> models = new ArrayList<>();
+    private static final Map<Long, SimpleItemObject> items = new HashMap<>();
 
     public static void main(String[] args) {
         try {
             File htmlOutput = new File(".");
-
-
-
-
             //writer.close();
             //getCraftingPrice("oasis half partition");
             //getCraftingPrices(Arrays.asList("molybdenum pliers", "molybdenum war axe", "molybdenum tassets of fending", "molybdenum plate belt of maiming"));
-            getCraftingPrices(Stream.concat(ItemDatabase.getAllContaining("rakshasa").stream(), ItemDatabase.getAllContaining("asfgadccs").stream()).collect(Collectors.toList()));
+            //getCraftingPrices(Stream.concat(ItemDatabase.getAllContaining("rakshasa").stream(), ItemDatabase.getAllContaining("asfgadccs").stream()).collect(Collectors.toList()));
+            //getCraftingPrices(RecipeDatabase.getAllCraftableItems());
+
+            createFaerieItemDatabaseHtml();
+
+
 
             HashMap<String, Object> scopes = new HashMap<String, Object>();
             scopes.put("models", models);
@@ -52,6 +55,72 @@ public class Driver {
             e.printStackTrace();
         }
 
+    }
+
+    static void createFaerieItemDatabaseHtml() throws Exception {
+        Set<Long> idsToQuery = new HashSet<>();
+        for (RecipeData recipeData : RecipeDatabase.getDatabase()) {
+            if (recipeData != null && recipeData.getIngredientList() != null && !recipeData.getIngredientList().isEmpty() && recipeData.getItemId() > 0) {
+                idsToQuery.add(recipeData.getItemId());
+                for (Ingredient ingredient : recipeData.getIngredientList()) {
+                    idsToQuery.add(ingredient.getItemId());
+                }
+            }
+        }
+
+        List<List<Long>> idBatches = Lists.partition(Lists.newArrayList(idsToQuery), 99);
+
+        for (List<Long> batch : idBatches) {
+            List<MarketResponse> apiMarketResponse = XIVAPI.getMarketResponse(batch, Lists.newArrayList("Faerie"));
+            for (MarketResponse marketResponse : apiMarketResponse) {
+                if (marketResponse == null || marketResponse.getServerAndMarketDataHolder() == null || marketResponse.getServerAndMarketDataHolder().getMarketData() == null || marketResponse.getServerAndMarketDataHolder().getMarketData().getPrices() == null || marketResponse.getServerAndMarketDataHolder().getMarketData().getPrices().isEmpty()) {
+                    continue;
+                }
+                items.put(marketResponse.getServerAndMarketDataHolder().getMarketData().getItemID(), new SimpleItemObject(
+                        marketResponse.getServerAndMarketDataHolder().getMarketData().getItemID(),
+                        marketResponse.getServerAndMarketDataHolder().getMarketData().getItem().getName(),
+                        marketResponse.getServerAndMarketDataHolder().getMarketData().getHistory(),
+                        marketResponse.getServerAndMarketDataHolder().getMarketData().getPrices()));
+            }
+        }
+
+        for (RecipeData recipeData : RecipeDatabase.getDatabase()) {
+            long itemId = recipeData.getItemId();
+            if (items.get(itemId) == null || !items.get(itemId).isValid()) {
+                continue;
+            }
+            String name = ItemDatabase.get(recipeData.getItemId()).getName();
+            long cheapest = items.get(itemId).getCheapestAvailable();
+            long cheapestHQ = items.get(itemId).getCheapestHQAvailable();
+            long priceToCraft = 0;
+            boolean ingredientDataMissing = false;
+            for (Ingredient ingredient : recipeData.getIngredientList()) {
+                if (items.get(ingredient.getItemId()) == null || !items.get(ingredient.getItemId()).isValid()) {
+                    ingredientDataMissing = true;
+                    continue;
+                }
+                priceToCraft += items.get(ingredient.getItemId()).getCheapestAvailable() * ingredient.getAmount();
+            }
+            if (ingredientDataMissing) {
+                continue;
+            }
+            long profit = cheapestHQ - priceToCraft;
+            long averageHistory = items.get(itemId).getAverageHistory();
+            long numSoldInPastWeek = items.get(itemId).getAmountSoldLastWeek();
+            long historicalProfit = (recipeData.canHQ() ? items.get(itemId).getAverageHQHistory() : items.get(itemId).getAverageHistory()) - priceToCraft;
+            models.add(new Model(
+               name,
+               nf.format(cheapest),
+               nf.format(cheapestHQ),
+               nf.format(priceToCraft),
+               nf.format(profit),
+               nf.format(averageHistory),
+               nf.format(numSoldInPastWeek),
+               nf.format(historicalProfit)
+            ));
+        }
+
+        System.out.println("Done");
     }
 
     static void getCraftingPrices(List<ItemData> itemsToQuery) {
@@ -83,7 +152,7 @@ public class Driver {
             return;
         }
 
-        System.out.println("--------------------------------------------");
+        //System.out.println("--------------------------------------------");
         for (String server : servers) {
             long totalCost = 0;
             for (MarketResponse marketResponse : marketResponseList) {
@@ -98,7 +167,7 @@ public class Driver {
                         }
                     }
                     long ingredientCost = marketResponse.getServerAndMarketDataHolder().getMarketData().getPrices().get(0).getPricePerUnit() * amountNeeded;
-                    System.out.println(amountNeeded + "x " + marketResponse.getServerAndMarketDataHolder().getMarketData().getItem().getName() + " will cost " + nf.format(ingredientCost));
+                    //System.out.println(amountNeeded + "x " + marketResponse.getServerAndMarketDataHolder().getMarketData().getItem().getName() + " will cost " + nf.format(ingredientCost));
                     totalCost += ingredientCost;
                 }
             }
@@ -110,7 +179,7 @@ public class Driver {
                 String textToPrint = "It costs " + nf.format(nqCost) + " to buy the cheapest " + itemData.getSingularName() + " and " + nf.format(hqCost) + " for HQ. It costs " + nf.format(totalCost) + " to craft " + nf.format(recipeData.getAmount()) + " for a profit of " + profit + ". On average, this item has been sold for " + nf.format(marketData.getAverageHQHistory()) + " and was sold " + (marketData.getAmountSoldLastWeek() >= 100 ? "at least " : "") + marketData.getAmountSoldLastWeek() + " time(s) in the last week which would be a profit of " + historyProfit;
                 profits.put(textToPrint, historyProfit);
                 models.add(new Model(
-                        itemData.getSingularName(),
+                        itemData.getName(),
                         nf.format(nqCost),
                         nf.format(hqCost),
                         nf.format(totalCost),
@@ -118,24 +187,24 @@ public class Driver {
                         nf.format(marketData.getAverageHQHistory()),
                         marketData.getAmountSoldLastWeek() > 100 ? nf.format(marketData.getAmountSoldLastWeek()) + "+" : nf.format(marketData.getAmountSoldLastWeek()),
                         nf.format(historyProfit)));
-                System.out.println(textToPrint);
+                //System.out.println(textToPrint);
             } else {
                 long profit = (nqCost * recipeData.getAmount()) - (totalCost);
                 long historyProfit = (marketData.getAverageHistory() * recipeData.getAmount()) - totalCost;
                 String textToPrint = "It costs " + nf.format(nqCost) + " to buy the cheapest " + itemData.getSingularName() + ". It costs " + nf.format(totalCost) + " to craft " + nf.format(recipeData.getAmount()) + " for a profit of " + profit + ". On average, this item has been sold for " + nf.format(marketData.getAverageHistory()) + " and was sold " + (marketData.getAmountSoldLastWeek() >= 100 ? "at least " : "") + marketData.getAmountSoldLastWeek() + " time(s) in the last week which would be a profit of " + historyProfit;
                 profits.put(textToPrint, historyProfit);
                 models.add(new Model(
-                        itemData.getSingularName(),
+                        itemData.getName(),
                         nf.format(nqCost),
                         "",
                         nf.format(totalCost),
                         nf.format(profit),
                         nf.format(marketData.getAverageHistory()), marketData.getAmountSoldLastWeek() > 100 ? nf.format(marketData.getAmountSoldLastWeek()) + "+" : nf.format(marketData.getAmountSoldLastWeek()),
                         nf.format(historyProfit)));
-                System.out.println(textToPrint);
+                //System.out.println(textToPrint);
             }
 
         }
-        System.out.println("--------------------------------------------");
+        //System.out.println("--------------------------------------------");
     }
 }

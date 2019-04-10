@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import com.google.common.base.Strings;
+import models.Item;
 import models.ItemData;
 import utilities.Utilities;
 
@@ -44,7 +45,7 @@ public class ItemDatabase {
         while (it.hasNextValue()) {
             ItemData itemData = it.next();
             if (!Strings.isNullOrEmpty(itemData.getName())) {
-                itemData.setName(Utilities.convertToShortName(itemData.getName()));
+                itemData.setTrimmedName(Utilities.convertToShortName(itemData.getName()));
                 database.add(itemData);
             }
         }
@@ -55,7 +56,7 @@ public class ItemDatabase {
         initializeDatabase();
         name = Utilities.convertToShortName(name);
         for (ItemData itemData : database) {
-            if (itemData.getName().contains(name)) {
+            if (itemData.getTrimmedName().contains(name)) {
                 return itemData;
             }
         }
@@ -77,7 +78,7 @@ public class ItemDatabase {
         List<ItemData> itemDataList = new ArrayList<>();
         name = Utilities.convertToShortName(name);
         for (ItemData itemData : database) {
-            if (itemData.getName().contains(name)) {
+            if (itemData.getTrimmedName().contains(name)) {
                 itemDataList.add(itemData);
             }
         }

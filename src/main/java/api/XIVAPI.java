@@ -44,7 +44,7 @@ public class XIVAPI {
 
     private static Response callAPI (Request request) throws Exception{
         while((System.currentTimeMillis() - timeSinceLastCall) < CLIENT_COOLDOWN_IN_MS) { }
-        System.out.println(request.url());
+        //System.out.println(request.url());
         timeSinceLastCall = System.currentTimeMillis();
         return client.newCall(request).execute();
     }

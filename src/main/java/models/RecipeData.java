@@ -74,4 +74,8 @@ public class RecipeData {
             ingredientList.add(new Ingredient(ingredientId10, ingredientAmount10));
         }
     }
+
+    public boolean canHQ() {
+        return "true".equals(canHQ.trim().toLowerCase()) || "1".equals(canHQ.trim().toLowerCase());
+    }
 }

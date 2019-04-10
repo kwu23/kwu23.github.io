@@ -3,6 +3,10 @@ package database;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
+import lombok.Getter;
+import lombok.Setter;
+import models.Item;
+import models.ItemData;
 import models.RecipeData;
 
 import java.util.ArrayList;
@@ -78,10 +82,19 @@ public class RecipeDatabase {
         return null;
     }
 
-    public static void printDatabase() throws Exception{
+    public static List<ItemData> getAllCraftableItems() throws Exception {
         initializeDatabase();
+        List<ItemData> itemDataList = new ArrayList<>();
         for (RecipeData recipeData : database) {
-            System.out.println(recipeData.getItemId());
+            if (recipeData != null && recipeData.getIngredientList() != null && !recipeData.getIngredientList().isEmpty() && recipeData.getItemId() > 0) {
+                itemDataList.add(ItemDatabase.get(recipeData.getItemId()));
+            }
         }
+        return itemDataList;
+    }
+
+    public static List<RecipeData> getDatabase () throws Exception{
+        initializeDatabase();
+        return database;
     }
 }

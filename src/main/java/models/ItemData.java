@@ -15,4 +15,5 @@ public class ItemData {
     private String imageId;
     private long itemLevel;
     private long rarity;
+    private String trimmedName;
 }
