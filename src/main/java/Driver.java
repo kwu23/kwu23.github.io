@@ -25,14 +25,14 @@ public class Driver {
             scopes.put("name", "Mustache");
             scopes.put("model", new Model("Perfect!"));
 
-            Writer writer = new OutputStreamWriter(System.out);
+            PrintWriter writer = new PrintWriter("index.html");
             MustacheFactory mf = new DefaultMustacheFactory();
             Mustache mustache = mf.compile("index.mustache");
             mustache.execute(writer, scopes);
             writer.flush();
-            BufferedWriter fileWriter = new BufferedWriter(new FileWriter("./index.html"));
-            fileWriter.write("hello");
-            writer.close();
+
+
+            //writer.close();
             //getCraftingPrice("oasis half partition");
             //getCraftingPrices(Arrays.asList("molybdenum pliers", "molybdenum war axe", "molybdenum tassets of fending", "molybdenum plate belt of maiming"));
             //getCraftingPrices(Stream.concat(ItemDatabase.getAllContaining("obi").stream(), ItemDatabase.getAllContaining("craftsing").stream()).collect(Collectors.toList()));
