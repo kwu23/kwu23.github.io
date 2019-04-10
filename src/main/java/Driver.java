@@ -2,6 +2,7 @@ import api.XIVAPI;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
+import database.ItemDatabase;
 import database.RecipeDatabase;
 import models.*;
 import rendering.Model;
@@ -10,32 +11,35 @@ import java.io.*;
 import java.text.NumberFormat;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Driver {
 
     private static final NumberFormat nf = NumberFormat.getInstance(Locale.US);
 
     private static final Map<String, Long> profits = new HashMap<>();
+    private static final List<Model> models = new ArrayList<>();
 
     public static void main(String[] args) {
         try {
             File htmlOutput = new File(".");
 
+
+
+
+            //writer.close();
+            //getCraftingPrice("oasis half partition");
+            //getCraftingPrices(Arrays.asList("molybdenum pliers", "molybdenum war axe", "molybdenum tassets of fending", "molybdenum plate belt of maiming"));
+            getCraftingPrices(Stream.concat(ItemDatabase.getAllContaining("rakshasa").stream(), ItemDatabase.getAllContaining("asfgadccs").stream()).collect(Collectors.toList()));
+
             HashMap<String, Object> scopes = new HashMap<String, Object>();
-            scopes.put("name", "Mustache");
-            scopes.put("model", new Model("Perfect!"));
+            scopes.put("models", models);
 
             PrintWriter writer = new PrintWriter("index.html");
             MustacheFactory mf = new DefaultMustacheFactory();
             Mustache mustache = mf.compile("index.mustache");
             mustache.execute(writer, scopes);
             writer.flush();
-
-
-            //writer.close();
-            //getCraftingPrice("oasis half partition");
-            //getCraftingPrices(Arrays.asList("molybdenum pliers", "molybdenum war axe", "molybdenum tassets of fending", "molybdenum plate belt of maiming"));
-            //getCraftingPrices(Stream.concat(ItemDatabase.getAllContaining("obi").stream(), ItemDatabase.getAllContaining("craftsing").stream()).collect(Collectors.toList()));
 
             Map<String, Long> sortedProfits = profits.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
@@ -105,12 +109,29 @@ public class Driver {
                 long historyProfit = (marketData.getAverageHQHistory() * recipeData.getAmount()) - totalCost;
                 String textToPrint = "It costs " + nf.format(nqCost) + " to buy the cheapest " + itemData.getSingularName() + " and " + nf.format(hqCost) + " for HQ. It costs " + nf.format(totalCost) + " to craft " + nf.format(recipeData.getAmount()) + " for a profit of " + profit + ". On average, this item has been sold for " + nf.format(marketData.getAverageHQHistory()) + " and was sold " + (marketData.getAmountSoldLastWeek() >= 100 ? "at least " : "") + marketData.getAmountSoldLastWeek() + " time(s) in the last week which would be a profit of " + historyProfit;
                 profits.put(textToPrint, historyProfit);
+                models.add(new Model(
+                        itemData.getSingularName(),
+                        nf.format(nqCost),
+                        nf.format(hqCost),
+                        nf.format(totalCost),
+                        nf.format(profit),
+                        nf.format(marketData.getAverageHQHistory()),
+                        marketData.getAmountSoldLastWeek() > 100 ? nf.format(marketData.getAmountSoldLastWeek()) + "+" : nf.format(marketData.getAmountSoldLastWeek()),
+                        nf.format(historyProfit)));
                 System.out.println(textToPrint);
             } else {
                 long profit = (nqCost * recipeData.getAmount()) - (totalCost);
                 long historyProfit = (marketData.getAverageHistory() * recipeData.getAmount()) - totalCost;
                 String textToPrint = "It costs " + nf.format(nqCost) + " to buy the cheapest " + itemData.getSingularName() + ". It costs " + nf.format(totalCost) + " to craft " + nf.format(recipeData.getAmount()) + " for a profit of " + profit + ". On average, this item has been sold for " + nf.format(marketData.getAverageHistory()) + " and was sold " + (marketData.getAmountSoldLastWeek() >= 100 ? "at least " : "") + marketData.getAmountSoldLastWeek() + " time(s) in the last week which would be a profit of " + historyProfit;
                 profits.put(textToPrint, historyProfit);
+                models.add(new Model(
+                        itemData.getSingularName(),
+                        nf.format(nqCost),
+                        "",
+                        nf.format(totalCost),
+                        nf.format(profit),
+                        nf.format(marketData.getAverageHistory()), marketData.getAmountSoldLastWeek() > 100 ? nf.format(marketData.getAmountSoldLastWeek()) + "+" : nf.format(marketData.getAmountSoldLastWeek()),
+                        nf.format(historyProfit)));
                 System.out.println(textToPrint);
             }
 
