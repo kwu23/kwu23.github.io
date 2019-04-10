@@ -70,6 +70,7 @@ public class Driver {
 
         List<List<Long>> idBatches = Lists.partition(Lists.newArrayList(idsToQuery), 99);
 
+        int numberOfAPICalls = 0;
         for (List<Long> batch : idBatches) {
             List<MarketResponse> apiMarketResponse = XIVAPI.getMarketResponse(batch, Lists.newArrayList("Faerie"));
             for (MarketResponse marketResponse : apiMarketResponse) {
@@ -82,6 +83,7 @@ public class Driver {
                         marketResponse.getServerAndMarketDataHolder().getMarketData().getHistory(),
                         marketResponse.getServerAndMarketDataHolder().getMarketData().getPrices()));
             }
+            System.out.println("Called API " + ++numberOfAPICalls + " times");
         }
 
         for (RecipeData recipeData : RecipeDatabase.getDatabase()) {
@@ -104,10 +106,10 @@ public class Driver {
             if (ingredientDataMissing) {
                 continue;
             }
-            long profit = cheapestHQ - priceToCraft;
+            long profit = recipeData.canHQ() ? cheapestHQ * recipeData.getAmount() - priceToCraft : cheapest * recipeData.getAmount() - priceToCraft;
             long averageHistory = items.get(itemId).getAverageHistory();
             long numSoldInPastWeek = items.get(itemId).getAmountSoldLastWeek();
-            long historicalProfit = (recipeData.canHQ() ? items.get(itemId).getAverageHQHistory() : items.get(itemId).getAverageHistory()) - priceToCraft;
+            long historicalProfit = (recipeData.canHQ() ? items.get(itemId).getAverageHQHistory() : items.get(itemId).getAverageHistory()) * recipeData.getAmount() - priceToCraft;
             models.add(new Model(
                name,
                nf.format(cheapest),
