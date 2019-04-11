@@ -7,6 +7,7 @@ import database.ItemDatabase;
 import database.RecipeDatabase;
 import models.*;
 import rendering.Model;
+import utilities.Utilities;
 
 import java.io.*;
 import java.text.NumberFormat;
@@ -119,6 +120,7 @@ public class Driver {
             long historicalHQProfit = averageHQHistory * recipeData.getAmount() - priceToCraft;
             long profitScore = items.get(itemId).hqInHistory() ? historicalHQProfit * numSoldInPastWeek : historicalNQProfit * numSoldInPastWeek ;
             models.add(new Model(
+                    Utilities.jobIdToString.get(recipeData.getCraftType()),
                     name,
                     nf.format(cheapest),
                     nf.format(cheapestHQ),

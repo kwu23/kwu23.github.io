@@ -10,6 +10,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class Model {
+    String crafter;
     String name;
     String cheapest;
     String cheapestHQ;
