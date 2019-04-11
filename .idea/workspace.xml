@@ -13,7 +13,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
@@ -41,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/RecipeData.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.mustache" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.mustache" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/resources/index.mustache">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+            <state relative-caret-position="195">
+              <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -116,8 +116,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../CraftingPrice/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="81814" column="7" lean-forward="true" selection-start-line="81814" selection-start-column="7" selection-end-line="81814" selection-end-column="7" />
+            <state relative-caret-position="253">
+              <caret line="87651" column="32" lean-forward="true" selection-start-line="87651" selection-start-column="32" selection-end-line="87651" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -213,11 +213,11 @@
         <option value="$PROJECT_DIR$/src/main/java/models/SimpleItemObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/Driver.java" />
         <option value="$PROJECT_DIR$/../CraftingPrice/src/main/java/models/SimpleItemObject.java" />
-        <option value="$PROJECT_DIR$/../CraftingPrice/index.html" />
         <option value="$PROJECT_DIR$/../CraftingPrice/src/main/java/rendering/Model.java" />
-        <option value="$PROJECT_DIR$/../CraftingPrice/src/main/resources/index.mustache" />
         <option value="$PROJECT_DIR$/../CraftingPrice/src/main/java/utilities/Utilities.java" />
         <option value="$PROJECT_DIR$/../CraftingPrice/src/main/java/Driver.java" />
+        <option value="$PROJECT_DIR$/../CraftingPrice/index.html" />
+        <option value="$PROJECT_DIR$/../CraftingPrice/src/main/resources/index.mustache" />
       </list>
     </option>
   </component>
@@ -417,18 +417,18 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32629356" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32629356" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5003655" side_tool="true" weight="0.35439137" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996345" weight="0.48891234" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996345" visible="true" weight="0.48891234" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -800,13 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../CraftingPrice/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="81814" column="7" lean-forward="true" selection-start-line="81814" selection-start-column="7" selection-end-line="81814" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/resources/ItemDatabase.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -817,7 +810,7 @@
     <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/java/models/RecipeData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -828,13 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="6812" column="11" selection-start-line="6812" selection-start-column="6" selection-end-line="6812" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/resources/index.mustache">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -865,6 +851,20 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../CraftingPrice/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="87651" column="32" lean-forward="true" selection-start-line="87651" selection-start-column="32" selection-end-line="87651" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../CraftingPrice/src/main/resources/index.mustache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
         </state>
       </provider>
     </entry>
