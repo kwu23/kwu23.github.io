@@ -48,7 +48,7 @@ public class SimpleItemObject {
         long total = 0;
         if (history != null && !history.isEmpty()) {
             for (ItemHistory itemHistory : history) {
-                if (((System.currentTimeMillis() - itemHistory.getPurchaseDateMS()) < 604800000)) {
+                if (!itemHistory.isIsHQ() && ((System.currentTimeMillis() - itemHistory.getPurchaseDateMS()) < 604800000)) {
                     sum += itemHistory.getPricePerUnit();
                     total++;
                 }

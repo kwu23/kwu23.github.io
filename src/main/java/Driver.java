@@ -110,20 +110,26 @@ public class Driver {
             if (ingredientDataMissing) {
                 continue;
             }
-            long profit = items.get(itemId).hqAvailableToPurchase() ? cheapestHQ * recipeData.getAmount() - priceToCraft : cheapest * recipeData.getAmount() - priceToCraft;
-            long averageHistory = items.get(itemId).hqInHistory() ? items.get(itemId).getAverageHQHistory() : items.get(itemId).getAverageHistory();
+            long nqProfit = (cheapest * recipeData.getAmount()) - priceToCraft;
+            long hqProfit = items.get(itemId).hqAvailableToPurchase() ? cheapestHQ * recipeData.getAmount() - priceToCraft : nqProfit;
+            long averageNQHistory = items.get(itemId).getAverageHistory();
+            long averageHQHistory = items.get(itemId).hqInHistory() ? items.get(itemId).getAverageHQHistory() : averageNQHistory;
             long numSoldInPastWeek = items.get(itemId).getAmountSoldLastWeek();
-            long historicalProfit = averageHistory * recipeData.getAmount() - priceToCraft;
-            long profitScore = historicalProfit * numSoldInPastWeek;
+            long historicalNQProfit = averageNQHistory * recipeData.getAmount() - priceToCraft;
+            long historicalHQProfit = averageHQHistory * recipeData.getAmount() - priceToCraft;
+            long profitScore = items.get(itemId).hqInHistory() ? historicalHQProfit * numSoldInPastWeek : historicalNQProfit * numSoldInPastWeek ;
             models.add(new Model(
                     name,
                     nf.format(cheapest),
                     nf.format(cheapestHQ),
                     nf.format(priceToCraft),
-                    nf.format(profit),
-                    nf.format(averageHistory),
+                    nf.format(nqProfit),
+                    nf.format(hqProfit),
+                    nf.format(averageNQHistory),
+                    nf.format(averageHQHistory),
                     nf.format(numSoldInPastWeek),
-                    nf.format(historicalProfit),
+                    nf.format(historicalNQProfit),
+                    nf.format(historicalHQProfit),
                     nf.format(profitScore)
             ));
         }

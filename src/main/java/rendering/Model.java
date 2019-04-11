@@ -14,9 +14,12 @@ public class Model {
     String cheapest;
     String cheapestHQ;
     String priceToCraft;
-    String profit;
-    String averageHistory;
+    String nqProfit;
+    String hqProfit;
+    String averageNQHistory;
+    String averageHQHistory;
     String numSoldInPastWeek;
-    String historicalProfit;
+    String historicalNQProfit;
+    String historicalHQProfit;
     String profitScore;
 }
