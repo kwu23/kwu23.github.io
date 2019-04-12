@@ -1,3 +1,4 @@
+
 import api.XIVAPI;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
@@ -12,6 +13,7 @@ import utilities.Utilities;
 import java.io.*;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -26,12 +28,6 @@ public class Driver {
 
     public static void main(String[] args) {
         try {
-            File htmlOutput = new File(".");
-            //writer.close();
-            //getCraftingPrice("oasis half partition");
-            //getCraftingPrices(Arrays.asList("molybdenum pliers", "molybdenum war axe", "molybdenum tassets of fending", "molybdenum plate belt of maiming"));
-            //getCraftingPrices(Stream.concat(ItemDatabase.getAllContaining("rakshasa").stream(), ItemDatabase.getAllContaining("asfgadccs").stream()).collect(Collectors.toList()));
-            //getCraftingPrices(RecipeDatabase.getAllCraftableItems());
 
             SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm a z");
             Date dt = new Date();
@@ -51,7 +47,6 @@ public class Driver {
 
             Map<String, Long> sortedProfits = profits.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
-            //System.out.println("PROFITS");
             for (String key : sortedProfits.keySet()) {
                 System.out.println(key);
             }

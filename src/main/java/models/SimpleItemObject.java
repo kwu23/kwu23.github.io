@@ -19,28 +19,28 @@ public class SimpleItemObject {
         if (history != null && !history.isEmpty()) {
             return history.get(0).getPricePerUnit();
         }
-        return -1;
+        return 0;
     }
 
     public long getCheapestAvailable() {
         if (prices != null && !prices.isEmpty()) {
             return prices.get(0).getPricePerUnit();
         }
-        return -1;
+        return 0;
     }
 
     public long getCheapestHQInHistory() {
         if (history != null && !history.isEmpty() && history.stream().anyMatch(x -> x.isIsHQ())) {
             return history.stream().filter(x -> x.isIsHQ()).findFirst().get().getPricePerUnit();
         }
-        return -1;
+        return 0;
     }
 
     public long getCheapestHQAvailable() {
         if (prices != null && !prices.isEmpty() && prices.stream().anyMatch(x -> x.isIsHQ())) {
             return prices.stream().filter(x -> x.isIsHQ()).findFirst().get().getPricePerUnit();
         }
-        return -1;
+        return 0;
     }
 
     public long getAverageHistory() {
