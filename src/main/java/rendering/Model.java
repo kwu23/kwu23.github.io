@@ -23,4 +23,6 @@ public class Model {
     String historicalNQProfit;
     String historicalHQProfit;
     String profitScore;
+    List<RecipeModel> recipeModels;
+    String id;
 }

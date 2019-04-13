@@ -8,6 +8,7 @@ import database.ItemDatabase;
 import database.RecipeDatabase;
 import models.*;
 import rendering.Model;
+import rendering.RecipeModel;
 import utilities.Utilities;
 
 import java.io.*;
@@ -28,7 +29,6 @@ public class Driver {
 
     public static void main(String[] args) {
         try {
-
             SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm a z");
             Date dt = new Date();
             String lastUpdatedOn = sdf.format(dt);
@@ -96,12 +96,20 @@ public class Driver {
             long cheapestHQ = items.get(itemId).getCheapestHQAvailable();
             long priceToCraft = 0;
             boolean ingredientDataMissing = false;
+            List<RecipeModel> recipeModels = new ArrayList<>();
             for (Ingredient ingredient : recipeData.getIngredientList()) {
                 if (items.get(ingredient.getItemId()) == null || !items.get(ingredient.getItemId()).isValid()) {
                     ingredientDataMissing = true;
                     continue;
                 }
-                priceToCraft += items.get(ingredient.getItemId()).getCheapestAvailable() * ingredient.getAmount();
+                long ingredientTotalCost = items.get(ingredient.getItemId()).getCheapestAvailable() * ingredient.getAmount();
+                priceToCraft += ingredientTotalCost;
+                recipeModels.add(new RecipeModel(
+                        items.get(ingredient.getItemId()).getName(),
+                        nf.format(items.get(ingredient.getItemId()).getCheapestAvailable()),
+                        nf.format(ingredient.getAmount()),
+                        nf.format(ingredientTotalCost)
+                ));
             }
             if (ingredientDataMissing) {
                 continue;
@@ -127,7 +135,9 @@ public class Driver {
                     nf.format(numSoldInPastWeek),
                     nf.format(historicalNQProfit),
                     nf.format(historicalHQProfit),
-                    nf.format(profitScore)
+                    nf.format(profitScore),
+                    recipeModels,
+                    name.toLowerCase().trim().replaceAll(" ", "").replaceAll("'", "")
             ));
         }
 
