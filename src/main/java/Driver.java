@@ -106,8 +106,8 @@ public class Driver {
                 priceToCraft += ingredientTotalCost;
                 recipeModels.add(new RecipeModel(
                         items.get(ingredient.getItemId()).getName(),
-                        nf.format(items.get(ingredient.getItemId()).getCheapestAvailable()),
                         nf.format(ingredient.getAmount()),
+                        nf.format(items.get(ingredient.getItemId()).getCheapestAvailable()),
                         nf.format(ingredientTotalCost)
                 ));
             }

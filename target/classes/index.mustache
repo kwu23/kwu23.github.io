@@ -5,7 +5,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+        <script src="https://unpkg.com/popper.js@1"></script>
+        <script src="https://unpkg.com/tippy.js@4"></script>
     </head>
 
     <table id="crafting_prices" class="display" style="width:100%">
@@ -30,7 +31,7 @@
         {{#models}}
             <tr>
                 <td> {{crafter}} </td>
-                <td> {{name}} </td>
+                <td id="{{id}}"> {{name}} </td>
                 <td> {{cheapest}} </td>
                 <td> {{cheapestHQ}} </td>
                 <td> {{averageNQHistory}} </td>
@@ -43,6 +44,14 @@
                 <td> {{historicalHQProfit}} </td>
                 <td> {{profitScore}} </td>
             </tr>
+            <script>
+                tippy('#{{id}}', {
+                    content: '<table><thead><tr><th style="color:#FAFAFA;"> Name </th><th style="color:#FAFAFA;"> Price </th><th style="color:#FAFAFA;"> Amount </th><th style="color:#FAFAFA;"> Total </th></tr></thead><tbody>{{#recipeModels}}<tr><td style="color:#FAFAFA;">{{name}}</td><td style="color:#FAFAFA;">{{price}}</td><td style="color:#FAFAFA;">{{amount}}</td><td style="color:#FAFAFA;">{{total}}</td><tr>{{/recipeModels}}</tbody></table>',
+                    placement: 'right',
+                    animateFill: false,
+                    animation: 'scale'
+                });
+            </script>
         {{/models}}
 
         </tbody>
@@ -52,7 +61,6 @@
         $(document).ready(function() {
             $('#crafting_prices').DataTable( {
                 "order": [[ 12, "desc" ]],
-                stateSave: true,
                 "pageLength": 20
             } );
         } );
