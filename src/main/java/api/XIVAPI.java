@@ -29,7 +29,7 @@ public class XIVAPI {
     private static final String SERVER_LIST_ENDPOINT = "servers=";
     private static final OkHttpClient client = new OkHttpClient();
 
-    private static final long CLIENT_COOLDOWN_IN_MS = 500;
+    private static final long CLIENT_COOLDOWN_IN_MS = 100;
 
     private static long timeSinceLastCall = 0;
 
