@@ -29,12 +29,12 @@ public class XIVAPI {
     private static final String SERVER_LIST_ENDPOINT = "servers=";
     private static final OkHttpClient client = new OkHttpClient();
 
-    private static final long CLIENT_COOLDOWN_IN_MS = 100;
+    private static final long CLIENT_COOLDOWN_IN_MS = 300;
 
     private static long timeSinceLastCall = 0;
 
     public static MarketData getMarketResponse(long itemId, String server) throws Exception {
-        String url = BASE_URL + MARKET_ENDPOINT + "/" + server + ITEM_ENDPOINT + "/" + itemId + API_KEY + API_KEYS.get(rng.nextInt(API_KEYS.size()));
+        String url = BASE_URL + MARKET_ENDPOINT + "/" + server + ITEM_ENDPOINT + "/" + itemId; //+ API_KEY + API_KEYS.get(rng.nextInt(API_KEYS.size()));
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -43,7 +43,7 @@ public class XIVAPI {
     }
 
     public static List<MarketResponse> getMarketResponse(List<Long> itemIds, List<String> servers) throws Exception{
-        String url = BASE_URL + MARKET_ENDPOINT + ITEM_ENDPOINT + "?" + SERVER_LIST_ENDPOINT + Joiner.on(",").join(servers) + ITEM_IDS + Joiner.on(",").join(itemIds) + API_KEY + API_KEYS.get(rng.nextInt(API_KEYS.size()));
+        String url = BASE_URL + MARKET_ENDPOINT + ITEM_ENDPOINT + "?" + SERVER_LIST_ENDPOINT + Joiner.on(",").join(servers) + ITEM_IDS + Joiner.on(",").join(itemIds); // + API_KEY + API_KEYS.get(rng.nextInt(API_KEYS.size()));
         Request request = new Request.Builder()
                 .url(url)
                 .build();
